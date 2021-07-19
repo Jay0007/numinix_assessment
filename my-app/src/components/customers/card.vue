@@ -15,9 +15,10 @@
     <v-card-subtitle>
         @{{ customer.username }}
     </v-card-subtitle>
-
-    <v-card-text>
+    <v-card-subtitle>
         <div class="catchPhrase">"{{ customer.company.catchPhrase }}"</div>
+    </v-card-subtitle>
+    <v-card-text>        
         <div class="cardText">{{ customer.email }}</div>
         <div class="cardText">{{ fullAddress }}</div>
         <div class="cardText">{{ customer.phone }}</div>
@@ -55,11 +56,15 @@ export default {
         background: #FFFFFF;
         border-radius: 8px;
     }
+
     .catchPhrase {
         color: #51C5FF;
+        font-weight: 400;
+        font-style: normal;
         font-size: 16px;
         line-height: 25px;
     }
+    
     .cardText {
         font-family: Rubik;
         font-style: normal;
