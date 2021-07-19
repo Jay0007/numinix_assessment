@@ -1,7 +1,6 @@
 <template>
   <v-card
-    class="mx-auto"
-    max-width="400"
+    class="customerCard"
   >
     <v-img
       class="white--text align-end"
@@ -17,27 +16,16 @@
         @{{ customer.username }}
     </v-card-subtitle>
 
-    <v-card-text class="text--primary">
-      <div>Whitehaven Beach</div>
-
-      <div>Whitsunday Island, Whitsunday Islands</div>
+    <v-card-text>
+        <div class="catchPhrase">"{{ customer.company.catchPhrase }}"</div>
+        <div class="cardText">{{ customer.email }}</div>
+        <div class="cardText">{{ fullAddress }}</div>
+        <div class="cardText">{{ customer.phone }}</div>
+        <div class="cardText">{{ customer.website }}</div>
+        <div class="cardText">{{ customer.company.name }}</div>
+        <div class="cardText">{{ customer.company.bs }}</div>
     </v-card-text>
 
-    <v-card-actions>
-      <v-btn
-        color="orange"
-        text
-      >
-        Share
-      </v-btn>
-
-      <v-btn
-        color="orange"
-        text
-      >
-        Explore
-      </v-btn>
-    </v-card-actions>
   </v-card>
 </template>
 
@@ -48,10 +36,36 @@ export default {
         return {
             customer: this.customerInfo
         }
+    },
+    computed: {
+        fullAddress: function () {
+            return this.customer.address.street + ', ' + 
+                    this.customer.address.suite + ', ' +
+                    this.customer.address.city + ', ' +
+                    this.customer.address.zipcode + ', ' +
+                    this.customer.address.geo.lat + ', ' +
+                    this.customer.address.geo.lng
+        }
     }
 }
 </script>
 
 <style>
-
+    .customerCard {
+        background: #FFFFFF;
+        border-radius: 8px;
+    }
+    .catchPhrase {
+        color: #51C5FF;
+        font-size: 16px;
+        line-height: 25px;
+    }
+    .cardText {
+        font-family: Rubik;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 25px;
+        color: #202223;
+    }
 </style>

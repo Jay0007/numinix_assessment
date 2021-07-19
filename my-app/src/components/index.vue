@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols=1>
+      <v-col cols="12">
         <searchFilter/>
       </v-col>
     </v-row>
