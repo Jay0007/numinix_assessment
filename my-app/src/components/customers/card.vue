@@ -2,7 +2,7 @@
     <v-card class="customerCard">
         <v-hover v-slot:default="{hover}">
             <v-img
-                src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+                :src="profilePhoto | defaultPhoto"
             >
                 <v-expand-transition>
                     <div
@@ -15,12 +15,13 @@
                 </v-expand-transition>
             </v-img>
         </v-hover>
+        
 
         <div class="container">
             <v-card-title class="title">
                 {{ customer.name }}
             </v-card-title>
-
+            
             <v-card-subtitle class="subtitle">
                 @{{ customer.username }}
             </v-card-subtitle>
@@ -69,8 +70,10 @@
         props: ["customerInfo"],
         data: function () {
             return {
-                customer: this.customerInfo
+                customer: this.customerInfo,
+                defaultPhoto: '../../assets/images/default.jpg'
             }
+            
         },
 
         computed: {
@@ -85,7 +88,12 @@
 
             bsCaps: function () {
                 return this.customer.company.bs.charAt(0).toUpperCase() + this.customer.company.bs.slice(1)
+            },
+
+            profilePhoto: function() {
+                return require('../../assets/images/' + this.customer.name + '.jpg')
             }
+            
         }
     }
 </script>
