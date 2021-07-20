@@ -27,15 +27,12 @@
 <script>
     export default {
         data: () => ({
-            items: ['Name (A-Z)', 'Name (Z-A)'],
-            searchByName: ""
+            items: ['Name (A-Z)', 'Name (Z-A)']
         }),
         
         computed: {
-            filteredList: function () {
-                return this.$store.state.cards.filter( (card) => {
-                    return card.name.match(this.searchByName) !== null
-                });
+            searchByName: function () {
+                return this.$store.dispatch('updatelist', this.searchByName)
             }
         }
     }

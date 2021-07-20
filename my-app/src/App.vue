@@ -1,6 +1,6 @@
 <template>
 	<v-app>
-		<v-app-bar class="app-bar"></v-app-bar>
+		<v-app-bar fixed class="app-bar"></v-app-bar>
 		<v-main class="main">
 			<index/>
 		</v-main>
@@ -23,7 +23,7 @@
 	};
 </script>
 
-<style scoped>
+<style>
 	.main {
 		background-color: #f2f5fa;
 	}
