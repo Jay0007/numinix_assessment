@@ -2,7 +2,7 @@
     <v-card class="customerCard">
         <v-hover v-slot:default="{hover}">
             <v-img
-                :src="profilePhoto | defaultPhoto"
+                :src="profilePhoto"
             >
                 <v-expand-transition>
                     <div
@@ -70,10 +70,8 @@
         props: ["customerInfo"],
         data: function () {
             return {
-                customer: this.customerInfo,
-                defaultPhoto: '../../assets/images/default.jpg'
-            }
-            
+                customer: this.customerInfo
+            }            
         },
 
         computed: {
@@ -91,7 +89,13 @@
             },
 
             profilePhoto: function() {
-                return require('../../assets/images/' + this.customer.name + '.jpg')
+                try {
+                    var imgPath = require('../../assets/images/' + this.customer.name + '.jpg');
+                } catch (err) {
+                    imgPath = require('../../assets/images/default.jpg');
+                }
+
+                return imgPath;
             }
             
         }
