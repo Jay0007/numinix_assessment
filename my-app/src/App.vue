@@ -1,29 +1,25 @@
 <template>
 	<v-app>
-		<v-app-bar class="app-bar"></v-app-bar>
+		<v-app-bar fixed class="app-bar"></v-app-bar>
 		<v-main class="main">
-			<index/>
+			<Customers/>
 		</v-main>
 	</v-app>
 </template>
 
 <script>
-	import index from './components/index';
+	import Customers from './components/Customers.vue';
 
 	export default {
 		name: 'App',
 
 		components: {
-			index
-		},
-
-		data: () => ({
-			//
-		}),
+			Customers
+		}
 	};
 </script>
 
-<style scoped>
+<style>
 	.main {
 		background-color: #f2f5fa;
 	}
