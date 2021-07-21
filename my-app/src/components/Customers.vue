@@ -26,19 +26,21 @@
 		</v-row>
 		<v-row class="mt-5">
 			<h3 v-if="!filteredList.length">No customer(s) found with the search criteria.</h3>
-			<v-col v-for="card in filteredList" :key="card.id" cols="3">
-				<card :customerInfo="card"></card>
+			<v-col v-for="card in filteredList" :key="card.id" cols="12" xl="3" lg="3" md="4" xs="6">
+				<CustomerCard :customerInfo="card"></CustomerCard>
 			</v-col>
 		</v-row>
 	</v-container>
 </template>
 
 <script>
-	import Card from './card/Card.vue';
+	import CustomerCard from './CustomerCard.vue';
 
 	export default {
+		name: 'Customers',
+
 		components: {
-			Card,
+			CustomerCard
 		},
 
 		created () {
@@ -81,3 +83,9 @@
 		}
 	};
 </script>
+
+<style>
+	.v-card__subtitle, .v-card__text, .v-card__title {
+		padding: 10px;
+	}
+</style>

@@ -37,7 +37,7 @@
 
                 <div class="d-flex">
                     <v-icon color='#015989' class="mr-3 d-inline">mdi-map-marker-outline</v-icon>
-                    <p class="cardText d-inline-block">{{ fullAddress }}</p>
+                    <p class="cardText d-inline-block addressText">{{ fullAddress }}</p>
                 </div>
 
                 <div>
@@ -55,8 +55,8 @@
                     <p class="cardText d-inline-block">{{ customer.company.name }}</p>
                 </div>
 
-                <div>
-                    <v-icon color='#015989' class="mr-3">mdi-factory</v-icon>
+                <div class="d-flex">
+                    <v-icon color='#015989' class="mr-3 d-inline">mdi-factory</v-icon>
                     <p class="cardText d-inline-block">{{ bsCaps }}</p>
                 </div>
             </v-card-text>
@@ -66,9 +66,10 @@
 
 <script>
     export default {
-        name: "Card",
+        name: 'CustomerCard',
         
         props: ["customerInfo"],
+
         data: function () {
             return {
                 customer: this.customerInfo
@@ -91,9 +92,9 @@
 
             profilePhoto: function() {
                 try {
-                    var imgPath = require('../../assets/images/' + this.customer.name + '.jpg');
+                    var imgPath = require('../assets/images/' + this.customer.name + '.jpg');
                 } catch (err) {
-                    imgPath = require('../../assets/images/default.jpg');
+                    imgPath = require('../assets/images/default.jpg');
                 }
 
                 return imgPath;
@@ -137,6 +138,9 @@
     .cardText {
         font-size: 16px;
         color: #202223;
+    }
+
+    .addressText {
         white-space: pre;
     }
 
@@ -151,5 +155,9 @@
         justify-content: center;
         position: absolute;
         width: 100%;
+    }
+
+    .v-sheet.v-card {
+        height: 100%;
     }
 </style>
