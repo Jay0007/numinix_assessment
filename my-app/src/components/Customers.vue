@@ -34,11 +34,11 @@
 </template>
 
 <script>
-	import card from './customers/card';
+	import Card from './card/Card.vue';
 
 	export default {
 		components: {
-			card,
+			Card,
 		},
 
 		created () {

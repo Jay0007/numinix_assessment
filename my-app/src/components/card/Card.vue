@@ -66,6 +66,8 @@
 
 <script>
     export default {
+        name: "Card",
+        
         props: ["customerInfo"],
         data: function () {
             return {
