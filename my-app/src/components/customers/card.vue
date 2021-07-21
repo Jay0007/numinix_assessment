@@ -16,7 +16,6 @@
             </v-img>
         </v-hover>
         
-
         <div class="container">
             <v-card-title class="title">
                 {{ customer.name }}
@@ -109,15 +108,20 @@
     }
 
     .title {
+        font-size: 24px;
+        line-height: 28px;
         font-weight: 500;
         font-style: normal;
         color: #202223;
     }
 
     .subtitle {
+        font-size: 16px;
+        line-height: 25px;
         font-weight: normal;
         font-style: normal;
-        color: #919191
+        color: #919191;
+        padding-bottom: 0;
     }
 
     .catchPhrase {
